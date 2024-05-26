@@ -93,6 +93,34 @@ export async function getHomePageData() {
 }
 
 /**
+ * Retrieves the data for the resume page from the API.
+ *
+ * Constructs the API URL using the base URL and queries the `/api/resume-page` endpoint
+ * with specific parameters to populate various fields within blocks: title and description.
+ * The data is then fetched using the `fetchData` function.
+ *
+ * @async
+ * @function getResumePageData
+ * @returns {Promise<any>} A promise that resolves to the data for the resume page.
+ * @throws {Error} If an error occurs while fetching the data.
+ */
+export async function getResumePageData() {
+  const url = new URL("/api/resume-page", baseUrl);
+
+  url.search = qs.stringify({
+    populate: {
+      blocks: {
+        populate: {
+          fields: ["title", "description"],
+        },
+      },
+    },
+  });
+
+  return await fetchData(url.href);
+}
+
+/**
  * Retrieves the global data (header and footer) from the API.
  *
  * Constructs the API URL using the base URL and queries the `/api/global` endpoint
