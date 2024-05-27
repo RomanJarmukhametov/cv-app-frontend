@@ -8,7 +8,7 @@
  */
 interface WrapperProps {
   as?: "section" | "div";
-  id: string;
+  id?: string;
   children?: React.ReactNode;
   className?: string;
 }
