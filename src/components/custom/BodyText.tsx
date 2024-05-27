@@ -1,10 +1,28 @@
 import React from "react";
 
+/**
+ * Props for the BodyText component.
+ *
+ * @typedef {Object} BodyTextProps
+ * @property {React.ReactNode} [children] - The content to be displayed within the paragraph.
+ * @property {string} [className] - Additional CSS class names to apply to the paragraph.
+ */
 interface BodyTextProps {
   children?: React.ReactNode;
   className?: string;
 }
 
+/**
+ * BodyText component for rendering paragraph text with specific styles.
+ *
+ * This component renders a paragraph (`<p>`) element with default styles for font,
+ * text color, and line height. It accepts optional children and additional class names.
+ * If no children are provided, it displays a default placeholder text.
+ *
+ * @component
+ * @param {BodyTextProps} props - The properties for the BodyText component.
+ * @returns {JSX.Element} The rendered BodyText component.
+ */
 const BodyText: React.FC<BodyTextProps> = ({
   children,
   className,
