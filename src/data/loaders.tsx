@@ -120,6 +120,19 @@ export async function getResumePageData() {
   return await fetchData(url.href);
 }
 
+/**
+ * Retrieves the data for the side navigation from the API.
+ *
+ * Constructs the API URL using the base URL and queries the `/api/side-navigation` endpoint
+ * with specific parameters to populate various fields: link, avatar with image fields,
+ * and menu items with icon, section ID, and item details.
+ * The data is then fetched using the `fetchData` function.
+ *
+ * @async
+ * @function getSideNavigationData
+ * @returns {Promise<any>} A promise that resolves to the data for the side navigation.
+ * @throws {Error} If an error occurs while fetching the data.
+ */
 export async function getSideNavigationData() {
   const url = new URL("/api/side-navigation", baseUrl);
 
