@@ -120,6 +120,30 @@ export async function getResumePageData() {
   return await fetchData(url.href);
 }
 
+export async function getSideNavigationData() {
+  const url = new URL("/api/side-navigation", baseUrl);
+
+  url.search = qs.stringify({
+    populate: {
+      link: {
+        populate: true,
+      },
+      avatar: {
+        populate: {
+          image: {
+            fields: ["url", "alternativeText"],
+          },
+        },
+      },
+      menuItem: {
+        fields: ["icon", "sectionId", "item"],
+      },
+    },
+  });
+
+  return await fetchData(url.href);
+}
+
 /**
  * Retrieves the global data (header and footer) from the API.
  *
