@@ -1,17 +1,4 @@
-/**
- * Props for the Wrapper component.
- *
- * @typedef {Object} WrapperProps
- * @property {"section" | "div"} [as="div"] - The HTML element to render, either "section" or "div".
- * @property {React.ReactNode} [children] - The content to be wrapped by the component.
- * @property {string} [className] - Additional CSS class names to apply to the component.
- */
-interface WrapperProps {
-  as?: "section" | "div";
-  id?: string;
-  children?: React.ReactNode;
-  className?: string;
-}
+import WrapperProps from "@/types/WrapperProps";
 
 /**
  * Wrapper component for rendering a section or div with specific padding and optional additional classes.
@@ -20,8 +7,6 @@ interface WrapperProps {
  * applying specific padding styles and any additional class names passed through the `className` prop.
  *
  * @component
- * @param {WrapperProps} props - The properties for the Wrapper component.
- * @returns {JSX.Element} The rendered Wrapper component.
  */
 const Wrapper: React.FC<WrapperProps> = ({
   as = "div",

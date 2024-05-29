@@ -6,51 +6,17 @@ import Avatar from "@/components/custom/Avatar";
 
 import StrapiImage from "@/components/custom/StrapiImage";
 
-/**
- * Represents the properties of an image.
- */
-interface ImageProps {
-  id: number;
-  url: string;
-  alternativeText: string;
-}
+import HeroSectionProps from "@/types/HeroSectionProps";
 
 /**
- * Represents the properties for a link.
+ * The `HeroSection` function in TypeScript React renders a hero section with dynamic data including
+ * heading, position, subheading, image, link, and avatar.
+ * @param  - The `HeroSection` component takes in a `data` prop of type `HeroSectionProps`, which
+ * contains the following properties:
+ * @returns The `HeroSection` component is returning a section element with a background image,
+ * containing a container with various elements such as heading, subheading, position, avatar, and a
+ * button with a link. The content is styled using Tailwind CSS classes for layout and design.
  */
-interface LinkProps {
-  id: number;
-  url: string;
-  text: string;
-}
-
-/**
- * Represents the properties of an avatar.
- */
-
-interface AvatarProps {
-  id: number;
-  image: {
-    id: number;
-    url: string;
-    alternativeText: string;
-  };
-}
-
-/**
- * Represents the properties of a hero section.
- */
-interface HeroSectionProps {
-  id: number;
-  __component: string;
-  heading: string;
-  subHeading: string;
-  position: string;
-  image: ImageProps;
-  link: LinkProps;
-  avatar: AvatarProps;
-}
-
 export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
   console.dir(data, { depth: null });
 

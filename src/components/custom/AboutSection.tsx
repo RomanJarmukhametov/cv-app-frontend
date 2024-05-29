@@ -1,25 +1,7 @@
 import Wrapper from "@/components/custom/Wrapper";
 import TheHeading from "@/components/custom/TheHeading";
 import BodyText from "@/components/custom/BodyText";
-
-/**
- * Props for the AboutSection component.
- *
- * @typedef {Object} AboutSectionProps
- * @property {number} id - The unique identifier for the section.
- * @property {string} __component - The component type.
- * @property {string} title - The title of the section.
- * @property {string} description - The description of the section.
- * @property {string} sectionId - The HTML id attribute for the section.
- */
-
-interface AboutSectionProps {
-  id: number;
-  __component: string;
-  title: string;
-  description: string;
-  sectionId: string;
-}
+import AboutSectionProps from "@/types/AboutSectionProps";
 
 /**
  * AboutSection component for rendering a section with a title and description.
