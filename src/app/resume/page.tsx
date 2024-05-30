@@ -4,6 +4,8 @@ import { getResumePageData } from "@/data/loaders";
 
 import { AboutSection } from "@/components/custom/AboutSection";
 
+import { ExperienceSection } from "@/components/custom/ExperienceSection";
+
 /**
  * Renders a block based on its component type.
  *
@@ -15,6 +17,13 @@ function blockRenderer(block: any) {
     case "layout.about-section":
       return (
         <AboutSection
+          key={block.id}
+          data={block}
+        />
+      );
+    case "layout.experience-section":
+      return (
+        <ExperienceSection
           key={block.id}
           data={block}
         />
