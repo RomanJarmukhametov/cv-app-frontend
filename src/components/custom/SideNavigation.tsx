@@ -52,7 +52,7 @@ export function SideNavigation({
     <div className="px-4 py-6 md:px-8 md:py-10 lg:px-12 lg:py-14 flex flex-col h-full">
       <div className="flex flex-col flex-grow">
         <div className="flex flex-col items-center justify-center mb-10">
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Avatar
               src={avatar.image.url}
               alt={avatar.image.alternativeText}
@@ -64,7 +64,7 @@ export function SideNavigation({
             />
           </div>
 
-          <div className="hidden md:inline-block">
+          <div className="hidden lg:inline-block">
             <Avatar
               src={avatar.image.url}
               alt={avatar.image.alternativeText}
@@ -76,7 +76,7 @@ export function SideNavigation({
             />
           </div>
 
-          <p className="hidden md:inline-block text-base font-bold text-white leading-tight text-center">
+          <p className="hidden lg:inline-block text-base font-bold text-white leading-tight text-center">
             {name}
           </p>
         </div>
@@ -94,7 +94,7 @@ export function SideNavigation({
                   isActive ? "text-primary" : "text-raven"
                 }`}>
                 {getIcon(item.icon)}
-                <span className="hidden md:inline-block">{item.item} </span>
+                <span className="hidden lg:inline-block">{item.item} </span>
               </Link>
             );
           })}
@@ -108,7 +108,7 @@ export function SideNavigation({
               href={link.url}
               className="flex space-x-2 items-center justify-center">
               <ChevronLeft className="h-4 w-4" />
-              <span className="hidden md:inline-block">{link.text}</span>
+              <span className="hidden lg:inline-block">{link.text}</span>
             </Link>
           </Button>
         </div>

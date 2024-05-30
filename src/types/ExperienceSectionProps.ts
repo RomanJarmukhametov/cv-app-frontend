@@ -4,6 +4,7 @@ TypeScript. It specifies that a `workExperience` object should have four propert
 as a blueprint for creating objects that store information about an individual's work experience,
 with each property representing a different aspect of that experience. */
 interface workExperience {
+  id: number;
   company: string;
   position: string;
   period: string;
