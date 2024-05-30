@@ -35,11 +35,6 @@ async function fetchData(url: string) {
  *
  * Constructs the API URL using the base URL and queries the `/api/global` endpoint
  * for specific fields: title and description. The data is then fetched using the `fetchData` function.
- *
- * @async
- * @function getGlobalPageMetadata
- * @returns {Promise<Object>} A promise that resolves to the fetched metadata.
- * @throws {Error} Throws an error if the fetch operation fails.
  */
 export async function getGlobalPageMetadata() {
   const url = new URL("/api/global", baseUrl);
@@ -57,11 +52,6 @@ export async function getGlobalPageMetadata() {
  * Constructs the API URL using the base URL and queries the `/api/home-page` endpoint
  * with specific parameters to populate various fields within blocks: image, link, feature, and process.
  * The data is then fetched using the `fetchData` function.
- *
- * @async
- * @function getHomePageData
- * @returns {Promise<any>} A Promise that resolves to the data for the home page.
- * @throws {Error} If an error occurs while fetching the data.
  */
 export async function getHomePageData() {
   // throw new Error("Test error");
@@ -98,11 +88,6 @@ export async function getHomePageData() {
  * Constructs the API URL using the base URL and queries the `/api/resume-page` endpoint
  * with specific parameters to populate various fields within blocks: title and description.
  * The data is then fetched using the `fetchData` function.
- *
- * @async
- * @function getResumePageData
- * @returns {Promise<any>} A promise that resolves to the data for the resume page.
- * @throws {Error} If an error occurs while fetching the data.
  */
 export async function getResumePageData() {
   const url = new URL("/api/resume-page", baseUrl);
@@ -111,7 +96,12 @@ export async function getResumePageData() {
     populate: {
       blocks: {
         populate: {
-          fields: ["title", "description"],
+          fields: ["title", "description", "sectionId"],
+          workExperience: {
+            populate: {
+              fields: ["company", "position", "period", "description"],
+            },
+          },
         },
       },
     },
@@ -127,11 +117,6 @@ export async function getResumePageData() {
  * with specific parameters to populate various fields: link, avatar with image fields,
  * and menu items with icon, section ID, and item details.
  * The data is then fetched using the `fetchData` function.
- *
- * @async
- * @function getSideNavigationData
- * @returns {Promise<any>} A promise that resolves to the data for the side navigation.
- * @throws {Error} If an error occurs while fetching the data.
  */
 export async function getSideNavigationData() {
   const url = new URL("/api/side-navigation", baseUrl);
@@ -163,11 +148,6 @@ export async function getSideNavigationData() {
  * Constructs the API URL using the base URL and queries the `/api/global` endpoint
  * with specific parameters to populate header and footer data, including logo text,
  * call-to-action button, and social links. The data is then fetched using the `fetchData` function.
- *
- * @async
- * @function getGlobalData
- * @returns {Promise<any>} A promise that resolves to the global data.
- * @throws {Error} If an error occurs while fetching the data.
  */
 export async function getGlobalData() {
   const url = new URL("/api/global", baseUrl);
