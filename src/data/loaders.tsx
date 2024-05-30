@@ -119,6 +119,8 @@ export async function getResumePageData() {
  * The data is then fetched using the `fetchData` function.
  */
 export async function getSideNavigationData() {
+  // Throw new error
+  // throw new Error("Test error");
   const url = new URL("/api/side-navigation", baseUrl);
 
   url.search = qs.stringify({
