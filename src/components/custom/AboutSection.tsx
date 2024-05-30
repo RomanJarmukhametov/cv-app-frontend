@@ -11,9 +11,6 @@ import AboutSectionProps from "@/types/AboutSectionProps";
  * using the `sectionId` prop.
  *
  * @component
- * @param {Object} props - The properties for the AboutSection component.
- * @param {AboutSectionProps} props.data - The data for the section.
- * @returns {JSX.Element} The rendered AboutSection component.
  */
 export function AboutSection({ data }: { readonly data: AboutSectionProps }) {
   const { title, description, sectionId } = data;
