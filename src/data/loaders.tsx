@@ -102,6 +102,11 @@ export async function getResumePageData() {
               fields: ["company", "position", "period", "description"],
             },
           },
+          educationInfo: {
+            populate: {
+              fields: ["year", "degree", "institution"],
+            },
+          },
         },
       },
     },
