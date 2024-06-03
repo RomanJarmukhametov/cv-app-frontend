@@ -3,6 +3,16 @@ import TheHeading from "@/components/custom/TheHeading";
 import BodyText from "@/components/custom/BodyText";
 import EducationSectionProps from "@/types/EducationSectionProps";
 
+/**
+ * The `EducationSection` component in TypeScript React renders a section with educational information,
+ * including degree, institution, and year.
+ * @param  - The `EducationSection` component takes in a `data` prop of type `EducationSectionProps`,
+ * which includes `title`, `sectionId`, and `educationInfo`.
+ * @returns The `EducationSection` component is being returned, which renders a section with education
+ * information including the title, year, degree, and institution for each education entry provided in
+ * the `educationInfo` array. Each education entry is displayed with a vertical line, date, title, and
+ * circle marker for styling.
+ */
 export function EducationSection({
   data,
 }: {
@@ -18,7 +28,6 @@ export function EducationSection({
       <TheHeading level="2">{title}</TheHeading>
 
       <div className="-my-6">
-        {/* Item #1 */}
         {educationInfo.map((education) => (
           <div
             key={education.id}
