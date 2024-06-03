@@ -24,9 +24,7 @@ export default async function ResumeLayout({
         {/* Menu content goes here */}
         <SideNavigation data={strapiData} />
       </aside>
-      <main className="w-3/4 bg-white p-4 no-scrollbar scroll-smooth overflow-y-auto main-content">
-        {children}
-      </main>
+      <main className="w-3/4 bg-white p-4 main-content">{children}</main>
     </div>
   );
 }

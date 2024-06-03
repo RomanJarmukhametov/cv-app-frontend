@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
@@ -26,7 +25,6 @@ export function SideNavigation({
 }) {
   const { avatar, name, menuItem, link } = data;
 
-  const pathname = usePathname();
   const [currentHash, setCurrentHash] = useState("");
 
   useEffect(() => {
@@ -86,7 +84,7 @@ export function SideNavigation({
             const isActive = currentHash === `#${item.sectionId}`;
 
             return (
-              <Link
+              <a
                 key={item.id}
                 href={`#${item.sectionId}`}
                 onClick={() => handleClick(`#${item.sectionId}`)}
@@ -95,7 +93,7 @@ export function SideNavigation({
                 }`}>
                 {getIcon(item.icon)}
                 <span className="hidden lg:inline-block">{item.item} </span>
-              </Link>
+              </a>
             );
           })}
         </div>
