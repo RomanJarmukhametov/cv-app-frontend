@@ -6,6 +6,7 @@ const Wrapper: React.FC<WrapperProps> = ({
   as = "div",
   children,
   className,
+  id,
 }) => {
   const Component = as;
 
@@ -15,7 +16,9 @@ const Wrapper: React.FC<WrapperProps> = ({
       : "px-4 py-6 md:px-8 md:py-10 lg:px-12 lg:py-14";
 
   return (
-    <Component className={`${paddingClasses} ${className}`}>
+    <Component
+      className={`${paddingClasses} ${className}`}
+      id={id}>
       {children}
     </Component>
   );
