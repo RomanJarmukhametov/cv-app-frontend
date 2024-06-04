@@ -107,6 +107,11 @@ export async function getResumePageData() {
               fields: ["year", "degree", "institution"],
             },
           },
+          skillDegree: {
+            populate: {
+              fields: ["name", "degree"],
+            },
+          },
         },
       },
     },
