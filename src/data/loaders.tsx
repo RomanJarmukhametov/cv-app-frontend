@@ -96,7 +96,7 @@ export async function getResumePageData() {
     populate: {
       blocks: {
         populate: {
-          fields: ["title", "description", "sectionId"],
+          fields: ["title", "sectionId", "description"],
           workExperience: {
             populate: {
               fields: ["company", "position", "period", "description"],
