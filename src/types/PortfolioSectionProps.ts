@@ -20,3 +20,5 @@ interface PortfolioSectionProps {
   sectionId: string;
   projectCard: ProjectCardProps[];
 }
+
+export default PortfolioSectionProps;
