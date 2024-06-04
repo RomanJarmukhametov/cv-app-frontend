@@ -8,6 +8,8 @@ import { ExperienceSection } from "@/components/custom/ExperienceSection";
 
 import { EducationSection } from "@/components/custom/EducationSection";
 
+import { SkillsSection } from "@/components/custom/SkillsSection";
+
 /**
  * Renders a block based on its component type.
  *
@@ -34,6 +36,14 @@ function blockRenderer(block: any) {
     case "layout.education-section":
       return (
         <EducationSection
+          key={block.id}
+          data={block}
+        />
+      );
+
+    case "layout.skills-section":
+      return (
+        <SkillsSection
           key={block.id}
           data={block}
         />
