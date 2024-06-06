@@ -115,6 +115,11 @@ export async function getResumePageData() {
           projectCard: {
             populate: {
               fields: ["title", "description", "image", "url", "category"],
+              image: {
+                populate: {
+                  fields: ["url", "alternativeText"],
+                },
+              },
             },
           },
         },
