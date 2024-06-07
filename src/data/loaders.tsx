@@ -122,6 +122,11 @@ export async function getResumePageData() {
               },
             },
           },
+          contactDetails: {
+            populate: {
+              fields: ["type", "name"],
+            },
+          },
         },
       },
     },
