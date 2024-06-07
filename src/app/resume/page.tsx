@@ -12,6 +12,8 @@ import { SkillsSection } from "@/components/custom/SkillsSection";
 
 import { PortfolioSection } from "@/components/custom/PortfolioSection";
 
+import { ContactsSection } from "@/components/custom/ContactsSection";
+
 /**
  * Renders a block based on its component type.
  *
@@ -54,6 +56,14 @@ function blockRenderer(block: any) {
     case "layout.portfolio-section":
       return (
         <PortfolioSection
+          key={block.id}
+          data={block}
+        />
+      );
+
+    case "layout.contacts-section":
+      return (
+        <ContactsSection
           key={block.id}
           data={block}
         />
