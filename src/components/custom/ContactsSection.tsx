@@ -49,8 +49,14 @@ export function ContactsSection({
               <div
                 className="flex items-center gap-4 text-primary transition-transform transform hover:scale-105 hover:text-secondary"
                 key={contact.id}>
-                {getIcon(contact.type)}
-                <BodyText>{contact.name}</BodyText>
+                <div className="hidden lg:inline-block">
+                  {getIcon(contact.type)}
+                </div>
+                <BodyText>
+                  <span className="text-sm md:text-base lg:text-lg">
+                    {contact.name}
+                  </span>
+                </BodyText>
               </div>
             </Link>
           );
