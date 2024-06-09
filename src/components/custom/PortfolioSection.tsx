@@ -20,8 +20,6 @@ export function PortfolioSection({
 }) {
   const { title, sectionId, projectCard } = data;
 
-  console.dir(projectCard, { depth: null });
-
   return (
     <Wrapper
       as="section"
