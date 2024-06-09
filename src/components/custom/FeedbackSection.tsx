@@ -2,6 +2,8 @@ import Wrapper from "@/components/custom/Wrapper";
 import TheHeading from "@/components/custom/TheHeading";
 import BodyText from "@/components/custom/BodyText";
 
+import FeedbackData from "@/components/custom/FeedbackData";
+
 import FeedbackSectionProps from "@/types/FeedbackSectionProps";
 
 export function FeedbackSection({
@@ -17,6 +19,7 @@ export function FeedbackSection({
       id={sectionId}
       className="mb-8">
       <TheHeading level="2">{title}</TheHeading>
+      <FeedbackData />
     </Wrapper>
   );
 }

@@ -170,6 +170,29 @@ export async function getSideNavigationData() {
 }
 
 /**
+ * The function `getFeedbackData` fetches feedback data from an API endpoint and populates image fields
+ * with URL and alternative text.
+ * @returns The `getFeedbackData` function is returning the result of fetching feedback data from the
+ * specified URL after populating the image field with the specified fields ("url" and
+ * "alternativeText").
+ */
+export async function getFeedbackData() {
+  const url = new URL("/api/feedbacks-data", baseUrl);
+
+  url.search = qs.stringify({
+    populate: {
+      image: {
+        populate: {
+          fields: ["url", "alternativeText"],
+        },
+      },
+    },
+  });
+
+  return await fetchData(url.href);
+}
+
+/**
  * Retrieves the global data (header and footer) from the API.
  *
  * Constructs the API URL using the base URL and queries the `/api/global` endpoint
