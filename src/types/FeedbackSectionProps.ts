@@ -6,6 +6,8 @@ interface FeedbackSectionProps {
   __component: string;
   title: string;
   sectionId: string;
+  description: string;
+  buttonText: string;
 }
 
 export default FeedbackSectionProps;

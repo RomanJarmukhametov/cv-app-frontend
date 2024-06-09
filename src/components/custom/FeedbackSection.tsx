@@ -1,6 +1,7 @@
 import Wrapper from "@/components/custom/Wrapper";
 import TheHeading from "@/components/custom/TheHeading";
 import BodyText from "@/components/custom/BodyText";
+import { Button } from "@/components/ui/button";
 
 import FeedbackData from "@/components/custom/FeedbackData";
 
@@ -11,7 +12,7 @@ export function FeedbackSection({
 }: {
   readonly data: FeedbackSectionProps;
 }) {
-  const { title, sectionId } = data;
+  const { title, sectionId, description, buttonText } = data;
 
   return (
     <Wrapper
@@ -20,6 +21,11 @@ export function FeedbackSection({
       className="mb-8">
       <TheHeading level="2">{title}</TheHeading>
       <FeedbackData />
+
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 mt-10 bg-primary/10 p-5 rounded">
+        <BodyText>{description}</BodyText>
+        <Button>{buttonText}</Button>
+      </div>
     </Wrapper>
   );
 }
