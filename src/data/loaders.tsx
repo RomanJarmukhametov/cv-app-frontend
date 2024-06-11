@@ -7,8 +7,7 @@ const baseUrl = getStrapiURL();
  * Fetches data from the specified URL.
  *
  * @param {string} url - The URL to fetch the data from.
- * @returns {Promise<Object>} A Promise that resolves to the fetched data.
- * @throws {Error} If an error occurs while fetching the data.
+ 
  */
 async function fetchData(url: string) {
   const authToken = null; // I will implement getAuthToken() later
@@ -26,6 +25,65 @@ async function fetchData(url: string) {
     return flattenAttributes(data);
   } catch (error) {
     console.error("Error fetching data:", error);
+    throw error; // or return null;
+  }
+}
+
+/**
+ * The type `FetchOptions` defines options for making fetch requests in TypeScript React, including
+ * method, body, and optional headers.
+ * @property {string} method - The `method` property in the `FetchOptions` type specifies the HTTP
+ * method to be used in the fetch request, such as 'GET', 'POST', 'PUT', 'DELETE', etc.
+ * @property {string | FormData} body - The `body` property in the `FetchOptions` type can be either a
+ * string or a FormData object.
+ * @property headers - The `headers` property in the `FetchOptions` type specifies the headers that
+ * will be included in the HTTP request. In this case, it is an optional property that contains a
+ * single header named "Content-Type" with a string value. This header is typically used to indicate
+ * the media type of the
+ */
+type FetchOptions = {
+  method: string;
+  body: string | FormData;
+  headers?: {
+    "Content-Type": string;
+  };
+};
+
+/**
+ * The function `postData` sends a POST request to a specified endpoint with data in either FormData or
+ * JSON format and handles the response accordingly.
+ * @param {string} endpoint - The `endpoint` parameter in the `postData` function is a string that
+ * represents the specific API endpoint or route where you want to send the POST request. It is
+ * typically a URL path relative to the base URL defined in the code.
+ * @param {FormData | object} data - The `data` parameter in the `postData` function can be either a
+ * `FormData` object or a regular JavaScript object. The function checks the type of `data` to
+ * determine how to handle it before making a POST request to the specified `endpoint`. If `data` is a
+ * `FormData`
+ * @returns The `postData` function is returning the response data received from the server after
+ * posting the data.
+ */
+export async function postData(endpoint: string, data: FormData | object) {
+  const url = `${baseUrl}${endpoint}`;
+  const options: FetchOptions = {
+    method: "POST",
+    body: data instanceof FormData ? data : JSON.stringify({ data }),
+  };
+
+  if (!(data instanceof FormData)) {
+    options.headers = {
+      "Content-Type": "application/json",
+    };
+  }
+
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const responseData = await response.json();
+    return responseData;
+  } catch (error) {
+    console.error("Error posting data:", error);
     throw error; // or return null;
   }
 }

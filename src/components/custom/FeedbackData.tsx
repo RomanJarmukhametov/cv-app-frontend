@@ -5,12 +5,19 @@ import Avatar from "@/components/custom/Avatar";
 
 import FeedbackDataProps from "@/types/FeedbackDataProps";
 
+/* This code snippet is defining an asynchronous function named `FeedbackData` that fetches feedback
+data using the `getFeedbackData` function. It then processes the response data to display feedback
+information on a webpage. */
 export default async function FeedbackData() {
   const response = await getFeedbackData();
   const strapiData: FeedbackDataProps[] = response.data;
 
   if (!Array.isArray(strapiData) || strapiData.length === 0) {
-    return <p>No feedback found</p>;
+    return (
+      <BodyText>
+        No feedback found. Be the first to share your thoughts.
+      </BodyText>
+    );
   }
 
   return (
