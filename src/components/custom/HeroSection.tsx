@@ -36,6 +36,7 @@ export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
           <div className="flex flex-col items-center justify-center">
             <div className="mb-10 flex flex-col items-center justify-center text-center">
               <Avatar
+                data-testid="cypress-avatar"
                 className="mb-6"
                 src={avatar.image.url}
                 alt={avatar.image.alternativeText}
@@ -46,7 +47,9 @@ export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
                   </span>
                 }
               />
-              <h1 className="mb-6 antialiased text-2xl md:text-4xl lg:text-5xl leading-tight text-white font-bold tracking-wide">
+              <h1
+                data-testid="cypress-title"
+                className="mb-6 antialiased text-2xl md:text-4xl lg:text-5xl leading-tight text-white font-bold tracking-wide">
                 {heading}
               </h1>
               <h2 className="mb-6 mx-auto text-xl md:text-2xl text-white font-medium">
